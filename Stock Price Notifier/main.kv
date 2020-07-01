@@ -1,0 +1,115 @@
+# CLASSES,FILES AT BOTTOM
+
+# IMPORT FUNCTIONS COME HERE
+#:import hex kivy.utils.get_color_from_hex
+
+FloatLayout:
+    ScreenManager:
+        id: screen_manager
+        MainScreen:
+            name: 'main_screen'
+            id: main_screen
+    FillPage:
+        GridLayout:
+            pos_hint: {'top': 1}
+            size_hint: 1,0.10
+            cols: 1
+            Label:
+                text: 'Stock Price Tracker'
+                font_size: '32dp'
+                bold: True
+        GridLayout:
+            pos_hint: {'top': 0.85,'x': 0.05}
+            size_hint: 0.9,0.08
+            cols: 2
+            Label:
+                text: 'Ticker: '
+                font_size: '18dp'
+                bold: True
+            TextInput:
+                multiline: False
+                bold: True
+                font_size: '18dp'
+                id: ticker
+        GridLayout:
+            pos_hint: {'top': 0.75,'x': 0.05}
+            size_hint: 0.9,0.08
+            cols: 2
+            Label:
+                text: 'Script Duration (m): '
+                font_size: '18dp'
+                bold: True
+            TextInput:
+                multiline: False
+                font_size: '22dp'
+                bold: True
+                id: duration
+        GridLayout:
+            pos_hint: {'top': 0.65,'x': 0.05}
+            size_hint: 0.9,0.08
+            cols: 2
+            Label:
+                text: 'Alerts Interval (m): '
+                font_size: '18dp'
+                bold: True
+            TextInput:
+                multiline: False
+                font_size: '22dp'
+                bold: True
+                id: interval
+        GridLayout:
+            pos_hint: {'top': 0.55, 'x': 0.05}
+            size_hint: 0.9,0.08
+            cols: 1
+            Button:
+                background_color: hex('#FFA69E')
+                text: 'Start Alerts'
+                bold: True
+                font_size: '28dp'
+                id: start_alerts
+                on_release: app.start_app()
+        GridLayout:
+            pos_hint: {'top': 0.45, 'x': 0.05}
+            size_hint: 0.9,0.08
+            cols: 1
+            Button:
+                background_color: hex('#FFA69E')
+                text: 'Quit'
+                bold: True
+                font_size: '28dp'
+                id: stop_alerts
+                on_release: quit()
+        GridLayout:
+            pos_hint: {'top': 0.35,'x': 0.05}
+            size_hint: 0.9,0.08
+            cols: 1
+            Label:
+                text: 'Author: Jeet Chugh'
+        GridLayout:
+            pos_hint: {'top': 0.25,'x': 0.05}
+            size_hint: 0.9,0.20
+            rows :3
+            Label:
+                text: 'Ticker - US: NYSE Tickers'
+                font_size: '15dp'
+            Label:
+                text: 'Duration - full length (in minutes)'
+                font_size: '15dp'
+            Label:
+                text: 'Interval - Time between Alerts (in minutes)'
+                font_size: '15dp'
+
+
+
+<FillPage@FloatLayout>:
+    # Sizing Info
+    pos_hint: {'top': 1}
+    size_hint: 1,1
+
+    #Background Color = Skobeloffe
+    canvas:
+        Color:
+            rgba: hex('#5E6472')
+        Rectangle:
+            size: self.size
+            pos: self.pos
